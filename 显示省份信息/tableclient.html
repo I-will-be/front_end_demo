@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table class="city">
+			<tr>
+				<th>ID</th>
+				<th>CID</th>
+				<th>NAME</th>
+				<th>TEXT</th>
+			</tr>
+		</table>
+		
+		<script src="./jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$.ajax({
+				url:"http://127.0.0.1:3000"
+			}).then(res=>{
+				var data=JSON.parse(res).locality.provinces[0].province
+				for(var i in data){
+					$('.city').append('<tr><td>'+data[i].$.id+'</td><td>'+data[i].$.cid+'</td><td>'+data[i].$.name+'</td><td>'+data[i].$.text+'</td></tr>')
+				}
+			})
+		</script>
+	</body>
+</html>
